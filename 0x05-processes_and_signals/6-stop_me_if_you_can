@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# stops the 4-to_infinity_and_beyond process
+
+# Run the 4-to_infinity_and_beyond process
+./4-to_infinity_and_beyond &
+
+# Wait for a moment to ensure the process has started
+sleep 1
+
+# Use pkill to terminate the process
+pkill 4-to_infinity_and_beyond
+
+if pgrep -q 4-to_infinity_and_beyond; then
+  echo "Process 4-to_infinity_and_beyond is still running."
+else
+  echo "Process 4-to_infinity_and_beyond has been terminated."
+fi

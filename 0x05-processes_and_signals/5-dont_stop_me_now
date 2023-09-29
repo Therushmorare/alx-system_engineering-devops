@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# stop the loop
+
+# Run the 4-to_infinity_and_beyond process in the background
+./4-to_infinity_and_beyond &
+
+# Get the PID of the 4-to_infinity_and_beyond process
+pid=$(pgrep -o 4-to_infinity_and_beyond)
+
+if [ -n "$pid" ]; then
+  kill "$pid"
+  echo "Process $pid has been terminated."
+else
+  echo "Process 4-to_infinity_and_beyond not found."
+fi
