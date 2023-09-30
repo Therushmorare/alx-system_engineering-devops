@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# loop best school
+for i in $(seq 1 1 10)
+do
+    echo "Best School"
+    i=$(( i + 1 ))
+done

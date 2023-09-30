@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# use until to print best school
+
+i=0
+until [ $i -ge 10 ]; do
+    echo "Best School"
+    let i+=1
+done
