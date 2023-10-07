@@ -1,0 +1,3 @@
+#!/bin/bash
+# listen to port
+nc -l -p 98 -k
