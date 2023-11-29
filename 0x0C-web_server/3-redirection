@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install and configure nginx for redirection
 
-function install_and_configure_nginx(){
+function err_301(){
     sudo apt-get update
     sudo apt-get -y install nginx
     sudo chown -R "$USER":"$USER" /var/www/html/
@@ -16,4 +16,4 @@ function install_and_configure_nginx(){
         sudo service nginx start
     fi
 }
-install_and_configure_nginx;
+err_301;
