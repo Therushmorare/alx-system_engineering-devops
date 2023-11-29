@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
-# Task 3
+# Install and configure nginx for redirection
 
-apt-get update
-apt-get install -y nginx
-echo "Hello World!" > /etc/nginx/html/index.html
-echo "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
-    }
-}" > /etc/nginx/sites-available/default
-service nginx restart
+function install_and_configure_nginx(){
+    sudo apt-get update
+    sudo apt-get -y install nginx
+    sudo chown -R "$USER":"$USER" /var/www/html/
+    echo 'Hello World!' > /var/www/html/index.html
+    sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/
+    redirect="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+    sudo sed -i "26i $redirect" /etc/nginx/sites-available/default
+
+    if [[ $(pgrep nginx) ]]; then
+        sudo nginx -s reload
+    else
+        sudo service nginx start
+    fi
+}
+install_and_configure_nginx;
