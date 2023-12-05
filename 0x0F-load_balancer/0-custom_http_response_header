@@ -1,23 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Installs Nginx with the following configurations:
 
-# Update package list
-sudo apt-get update
+apt-get update
+apt-get install -y nginx
 
-# Install Nginx
-sudo apt-get install -y nginx
+mkdir -p /var/www/html
+touch /var/www/html/index.html
+echo "Hello World" > /var/www/html/index.html
+touch /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-# Create directories and files
-sudo mkdir -p /var/www/html
-sudo touch /var/www/html/index.html
-sudo echo "Hello World" > /var/www/html/index.html
-sudo touch /var/www/html/404.html
-sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
-
-# Configure Nginx
-printf "%s" "server {
+printf %s "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    add_header X-Served-By \$HOSTNAME;
+    add_header X-Served-By $HOSTNAME;
     root   /var/www/html;
     index  index.html index.htm;
 
@@ -30,7 +26,6 @@ printf "%s" "server {
       root /var/www/html;
       internal;
     }
-}" | sudo tee /etc/nginx/sites-available/default
+}" > /etc/nginx/sites-available/default
 
-# Restart Nginx to apply changes
-sudo service nginx restart
+service nginx restart
