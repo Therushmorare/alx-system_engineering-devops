@@ -1,15 +1,1 @@
-DNS Request: Your browser initiates a DNS request by looking up the ip address of the searched domain name, in this case “google.com”.
-
-TCP/IP: The browser will establish a transmission control protocol with the server with the Ip address found relating to the domain name.
-
-Firewall: The request and response data packets pass through your local firewall, which monitors and controls incoming and outgoing network traffic.If the firewall rules permit the connection, the data packets continue to the next stage. This is mostly for security purposes.
-
-HTTPS/SSL: The Hypertext Transfer Protocol Secure and Secure Socket Layer encrypt data transferred between browser and server to avoid third parties from intercepting the data.
-
-Load-Balancer: Load-balancers help ensure that no single server is overwhelmed with requests, improving the website’s performance and reliability, by distributing the requests among multiple servers connected to the main server in the network.
-
-Web Server: The web server is responsible for handling the HTTP request, processing it, and generating an appropriate response.
-
-Application Server: The application server communicates with the web server to generate the necessary content for the response.
-
-Database: The database is a collection of rows, columns or records of data, which in this context will be the data being served back to you after performing a search query in the google site.
+https://medium.com/@tshego.tt.morare/what-happens-when-you-type-https-www-google-com-in-your-browser-and-press-enter-b9d4498de43b
